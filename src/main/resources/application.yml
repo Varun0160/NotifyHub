@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: notifyhub
+  datasource:
+    url: jdbc:mysql://localhost:3307/notifyhub
+    username: ${DB_USER:notifyhub}
+    password: ${DB_PASSWORD:notifyhub}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate   # Hibernate never changes the schema. Flyway will (Day 2).
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+server:
+  port: 8080
